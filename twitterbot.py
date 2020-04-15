@@ -19,10 +19,14 @@ auth.set_access_token(access_token,access_secret)
 api=tp.API(auth)
 
 os.chdir('calm')
+for img in os.listdir('.'):
+    api.update_with_media(img)
+    time.sleep(10)
+"""To delete all the tweets of the bots---
 for status in tp.Cursor(api.user_timeline).items():
      try:
          api.destroy_status(status.id)
          #print "Deleted:", status.id
      except:
          pass
-         #print "Failed to delete:", status.id
+         #print "Failed to delete:", status.id"""
